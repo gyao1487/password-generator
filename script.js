@@ -1,10 +1,13 @@
-// Assignment code here
-// Arrays for character sets
-var lowercaseList = 'abcdefghijklmnopqrstuvwxyz'.split('');
-var uppercaseList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-var numbersList = '1234567890'.split('');
-var specialList = '~`!@#$%^&*()_+-=[]{};:,.<>/?*'.split('');
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
 
+//Function to generate random number
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min) + min)
+}
+
+//Function to pick random character from a list
+function randomCharacter(list)
 
 //Function to generate password
 function generatePassword() {
@@ -12,7 +15,7 @@ function generatePassword() {
   var length = window.prompt("How long would you like your password to be? (type a number from 8 to 128)")
   var passwordlength = parseInt(length)
 
-  if(isNaN(passwordlength)) {
+  if (isNaN(passwordlength)) {
     window.alert("Hey, that's not a number! Please try again.")
     return
   }
@@ -23,38 +26,50 @@ function generatePassword() {
   }
 
   //Character type criteria
-  var lowercaseYes = window.confirm ("Would you like your password to include lowercase letters?")
+  var lowercaseYes = window.confirm("Would you like your password to include lowercase letters?")
   var uppercaseYes = window.confirm("Would you like your password to include uppercase letters?")
   var numbersYes = window.confirm("Would you like your password to include numeric characters?")
   var specialYes = window.confirm("Would you like your password to special characters?")
-   
+
+  //Character lists
+  var lowercaseList = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  var uppercaseList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  var numbersList = '1234567890'.split('');
+  var specialList = '~`!@#$%^&*()_+-=[]{};:,.<>/?*'.split('');
+
+
   //Variable to hold selected character lists
   var selectedCharacters = []
 
   //Conditional statements to add character lists based on selected criteria
-  if(lowercaseYes) {
+  if (lowercaseYes) {
     selectedCharacters.push(lowercaseList)
   }
 
-  if(uppercaseYes) {
+  if (uppercaseYes) {
     selectedCharacters.push(uppercaseList)
   }
 
-  if(numbersYes) {
-    selectedOptions.push(numbersList)
+  if (numbersYes) {
+    selectedCharacters.push(numbersList)
   }
 
-  if(specialYes) {
-    selectedOptions.push(specialList)
+  if (specialYes) {
+    selectedCharacters.push(specialList)
   }
+
+  //Generated password string
+  var generatedPassword = ""
+
+  //for loop for randomly selecting characters
+  for (var i = 0; i < passwordlength; i++) {
+    var randomCharacter = selectedCharacters[randomInt(0, optionsCart.length - 1)]
+  }
+
+
 }
 
 
-
-
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
