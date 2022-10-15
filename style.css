@@ -14,7 +14,7 @@ body,
 
 body {
   font-family: 'Century Gothic', sans-serif;
-  background-color: #f9fbfd;
+  background-color: #4a4a4b;
 }
 
 .wrapper {
@@ -27,20 +27,26 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: hsl(0, 0%, 100%);
 }
 
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
   border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  transition: all .5s ease-out
 }
+
+.card:hover{
+box-shadow: 10px 10px 7px 3px #5fecffa1;
+transition: all .5s ease-in
+}
+
 
 .card-header::after {
   content: " ";
@@ -74,7 +80,7 @@ header {
 
 .btn {
   border: none;
-  background-color: rgb(21, 133, 185);
+  background-color: rgb(29, 160, 221);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -86,6 +92,10 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(74, 198, 255);
 }
 
 .copy  {
@@ -104,7 +114,9 @@ header {
   cursor: pointer;
 }
 
-
+.copy:hover {
+  background-color: rgb(126, 125, 125);
+}
 
 button[disabled] {
   cursor: default;
@@ -125,7 +137,7 @@ button[disabled] {
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  padding-bottom: 85px;
+  padding-bottom: 50px;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;

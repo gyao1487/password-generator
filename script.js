@@ -1,5 +1,4 @@
 //GENERATE PASSWORD BUTTON
-// Select #generate button
 var generateBtn = document.querySelector("#generate");
 
 //Function to generate random number
