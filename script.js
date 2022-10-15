@@ -1,4 +1,5 @@
-// Get references to the #generate element
+//GENERATE PASSWORD BUTTON
+// Select #generate button
 var generateBtn = document.querySelector("#generate");
 
 //Function to generate random number
@@ -80,8 +81,6 @@ function generatePassword() {
   return generatedPassword 
 }
 
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -91,5 +90,27 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-
 generateBtn.addEventListener("click", writePassword)
+
+
+//COPY PASSWORD BUTTON
+var copyBtn = document.querySelector("#copy");
+
+//Function to copy the password
+copyBtn.addEventListener("click", copyPassword);
+
+function copyPassword(event) {
+  var copyText = document.querySelector ("#password");
+  copyText.select(event);
+  copyText.setSelectionRange(0,99999);
+  navigator.clipboard.writeText(copyText.value)
+  //error message if password has not been generated
+  if (copyText.value === "") {
+    window.alert ("There is nothing to copy! Please generate the password and try again.")
+    return
+  }
+  //success message
+  alert("Congratulatons! Your new password has been copied to the clipboard.")
+}
+
+
