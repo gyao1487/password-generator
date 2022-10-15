@@ -3,20 +3,22 @@ var generateBtn = document.querySelector("#generate");
 
 //Function to generate random number
 function randomInt(min, max) {
-  return Math.floor(Math.random() * (max - min) + min)
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 //Function to pick random character from a list
-function randomCharacter(list)
+function getRandomCharacter(list) {
+  return list[randomInt(0, list.length - 1)]
+}
 
 //Function to generate password
 function generatePassword() {
   //Password length criteria - includes what happens if user input is not a number or not between 8-128
-  var length = window.prompt("How long would you like your password to be? (type a number from 8 to 128)")
-  var passwordlength = parseInt(length)
+  var Userlength = window.prompt("How long would you like your password to be? (type a whole number from 8 to 128)")
+  var passwordlength = parseInt(Userlength)
 
   if (isNaN(passwordlength)) {
-    window.alert("Hey, that's not a number! Please try again.")
+    window.alert("Hey, that's not a valid number! Please try again.")
     return
   }
 
@@ -26,10 +28,10 @@ function generatePassword() {
   }
 
   //Character type criteria
-  var lowercaseYes = window.confirm("Would you like your password to include lowercase letters?")
-  var uppercaseYes = window.confirm("Would you like your password to include uppercase letters?")
-  var numbersYes = window.confirm("Would you like your password to include numeric characters?")
-  var specialYes = window.confirm("Would you like your password to special characters?")
+  var lowercaseYes = window.confirm("Would you like your password to include lowercase letters?");
+  var uppercaseYes = window.confirm("Would you like your password to include uppercase letters?");
+  var numbersYes = window.confirm("Would you like your password to include numeric characters?");
+  var specialYes = window.confirm("Would you like your password to special characters?");
 
   //Character lists
   var lowercaseList = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -39,7 +41,7 @@ function generatePassword() {
 
 
   //Variable to hold selected character lists
-  var selectedCharacters = []
+  var selectedCharacters = [];
 
   //Conditional statements to add character lists based on selected criteria
   if (lowercaseYes) {
@@ -58,15 +60,24 @@ function generatePassword() {
     selectedCharacters.push(specialList)
   }
 
+  //Alert if user does not select at least one character type
+  if (selectedCharacters.length === 0) {
+    window.alert("You must select at least one character type! Please try again.")
+    return
+  }
+
+
   //Generated password string
   var generatedPassword = ""
 
   //for loop for randomly selecting characters
   for (var i = 0; i < passwordlength; i++) {
-    var randomCharacter = selectedCharacters[randomInt(0, optionsCart.length - 1)]
+    var randomList = getRandomCharacter(selectedCharacters)
+    var randomCharacters = getRandomCharacter(randomList)
+    generatedPassword += randomCharacters
   }
 
-
+  return generatedPassword 
 }
 
 
@@ -75,10 +86,10 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+
+generateBtn.addEventListener("click", writePassword)
