@@ -8,7 +8,7 @@ The secondary goal is the exercise the use of Javascript and apply the knowledge
 
 ## Installation
 
-You can open the webpage in your web browser using this URL:
+You can open the webpage in your web browser using this URL: https://gyao1487.github.io/password-generator/
 
 ## Usage
 Features implemented on this webpage:
