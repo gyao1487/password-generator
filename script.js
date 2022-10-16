@@ -103,8 +103,14 @@ function copyPassword(event) {
   copyText.select(event);
   copyText.setSelectionRange(0,99999);
   navigator.clipboard.writeText(copyText.value)
+
   //error message if password has not been generated
   if (copyText.value === "") {
+    window.alert ("There is nothing to copy! Please generate the password and try again.")
+    return
+  }
+
+  if (copyText.value === "undefined") {
     window.alert ("There is nothing to copy! Please generate the password and try again.")
     return
   }
