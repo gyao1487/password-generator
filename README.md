@@ -20,8 +20,8 @@ Features implemented on this webpage:
 * After the password is successfully generated, the user can click the "Copy Password" button to copy the password onto their clipboard. A message appears to alert the user that the password has been successfully copied.
 * If the user clicks the "Copy Password" button before the password has been successfully generated, an error message appears and notifies the user that there is nothing to copy. 
 
-The following video demonstrates application functionality
-![Webpage Screenshot](./assets/password-generator-demo.mp4)
+![Webpage Screenshot](./assets/screenshot.PNG)
+![Video Demo](./assets/demo.mp4)
 
 ## Credits
 Referenced the following resources to complete this project:
